@@ -1,0 +1,17 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{companyInfo.companyName}}<span class="pull-right">{{companyInfo.startDate}} to {{companyInfo.endDate}}</span></h3>
+	</div>
+	<div class="panel-body">
+		<div ng-repeat="position in companyInfo.positions">
+		<p class="lead">
+			{{position.positionName}} <span class="pull-right">{{position.startDate}} to {{position.endDate}}</span>
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="resonsibility in position.responsibilities">
+				{{resonsibility}}
+			</li>
+		</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='resumeApp'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    
+    <!-- AngularJS App files -->
+    <!--script src="/resume/include/js/angular.min.js"></script-->
+    <script src="/resume/include/js/angular.js"></script>
+    <script src="/resume/appjs/services.js"></script>
+    <script src="/resume/appjs/controllers.js"></script>
+    <script src="/resume/appjs/main.js"></script>
+
+    <title>William C Magee III Resume</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/resume/include/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/resume/include/css/sticky-footer.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body ng-controller='CompanyCtrl'>
+
+    <!-- Begin page content -->
+    <div class="container">
+    	
+      <div class="page-header row">
+        <div class='col-md-12'><h1>{{personName}} <a href="mailto:{{email}}" class="small">{{email}}</a></h1></div>
+      </div>
+	
+	  <div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Skills</h3>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+	      		<li class="list-group-item col-md-4" ng-repeat="skill in skills">{{skill}}</li>
+	      	</ul>
+		</div>
+	  </div>	
+      
+      <div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Certifications</h3>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+	      		<li class="list-group-item col-md-12" ng-repeat="cert in certifications">{{cert.name}} <span class="pull-right">{{cert.organization}}, {{cert.dateReceived}}</span></li>
+	      	</ul>
+		</div>
+	  </div>
+      
+      <div ng-repeat='company in companies'>
+      	<company-panel info='company'></company-panel>
+      </div>
+      
+    </div>
+
+    <div class="footer">
+      <div class="container">
+      	<div class="row">
+        	<p class="text-muted">
+        		<span class="col-md-8">{{personName}}</span> <a href="mailto:{{email}}" class="col-md-4 text-right" style="color:#777">{{email}}</a>
+        	</p>
+        </div>
+      </div>
+    </div>
+
+
+	<script src="/resume/include/js/jquery-1.11.1.min.js"></script>
+	<script src="/resume/include/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/resume/include/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    
+  </body>
+</html>
